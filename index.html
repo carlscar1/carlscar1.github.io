@@ -5,10 +5,35 @@
       </head>
     <body>
       <h1>HealthKit iOS</h1>
-      <h1>Overview</h1>
-      <p> HealthKit allows applications to connect to health and fitness data on iPhones and Apple Watches. In order to use this data, users must give permission to the app to communicate with the HealthKit store. In accessing this data, apps have the ability to read, share, or update the data stored in this central health storage system. 
+      <h2>Overview</h2>
+      <p> HealthKit allows applications to connect to health and fitness data on iPhones and Apple Watches. 
+        In order to use this data, users must give permission to the app to communicate with the HealthKit store. 
+        In accessing this data, apps have the ability to read, share, or update the data stored in this central health storage system. 
 
-This basic app will integrate with the HealthKit to read and update the user’s step count. It also creates a leaderboard of users with the highest step count, but that is beyond this basic HealthKit tutorial. 
-</p>
+        This basic app will integrate with the HealthKit to read and update the user’s step count. 
+        It also creates a leaderboard of users with the highest step count, but that is beyond this basic HealthKit tutorial. 
+    </p>
+      <h2>Getting Started</h2>
+      <p>Make sure you have XCode installed on your machine with a version that supports HealthKit. 
+        HealthKit was introduced in iOS 8, so an XCode version that supports iOS version 8 or later will work. 
+        You also need an active Apple Developer account to enable HealthKit capabilities.
+      </p>
+      <h2>
+        Tutorial
+      </h2>
+      <p>
+        To begin using HealthKit in your XCode project, you must do the following to configure your HealthKit store:
+ 1. Enable HealthKit in your project:
+  In XCode, select the top folder of your project from the targets list
+  Click on “Signing & Capabilities”
+  Type in “HealthKit” and click on the search results
+  Next, go to the “Info” tab
+  Click the “+” and choose “Privacy - Health Share Usage Description”
+  You can double click on the value column to enter your app’s purpose string. This lets the user know why you need access to this data.
+  Finally, enable the Background Delivery capabilities
+  You can also choose to access Clinical Health Records, 
+        but see reference #2 in the See Also Section for more information about this as you need additional configuration steps. 
+
+      </p>
     </body>
   </html>
