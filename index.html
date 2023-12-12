@@ -34,7 +34,7 @@
           You can also choose to access Clinical Health Records, 
           but see reference #2 in the See Also Section for more information about this as you need additional configuration steps. 
         </ol>
-      <ol> Next, in the swift file that I wanted to access this HealthKit data (in my case MainViewController), 
+      <ol>2. Next, in the swift file that I wanted to access this HealthKit data (in my case MainViewController), 
         I used this line to import the HealthKit at the top:
       <pre>
       <code>
@@ -42,10 +42,10 @@
       </code>
       </pre>
       </ol>
-      <ol>Then, within my class “MainViewController”, I added this near the top: 
+      <ol>3. Then, within my class “MainViewController”, I added this near the top: 
       <code>private let healthStore = HKHealthStore()</code>
       </ol>
-      <ol>Within my UI, I added labels as well as a progress bar and then put these outlets at the top of my MainViewController 
+      <ol>4. Within my UI, I added labels as well as a progress bar and then put these outlets at the top of my MainViewController 
       <pre>
         <code>    
           @IBOutlet weak var stepsLabel: UILabel!
@@ -56,9 +56,9 @@
         </code>
       </pre>
       </ol>
-      <ol>In my function ViewDidLoad(), I added the following code (Note: we did not implement those two functions, so this will give errors):
+      <ol>5. In my function ViewDidLoad(), I added the following code (Note: we did not implement those two functions, so this will give errors):
       <pre>
-      <code>    override func viewDidLoad() {
+      <code>override func viewDidLoad() {
         super.viewDidLoad()
         authorizeHealthKit() // This function provides the ability to authorize the HealthKit.
         gettingStepCount() { stepCount in // This function provides the step count of the users.
@@ -72,8 +72,7 @@
       </code>
         </pre>
       </ol>
-      <ol>
-        To implement the authorizeHealthKit() function I added this:
+      <ol>6. To implement the authorizeHealthKit() function I added this:
         <pre>
         <code>
         private func authorizeHealthKit() {
@@ -85,8 +84,7 @@
       </code>
       </pre>
       </ol>
-      <ol>
-        Next, let’s implement gettingStepCount() to get just the current day’s step count:
+      <ol>7. Next, let’s implement gettingStepCount() to get just the current day’s step count:
         <pre>
         <code>
         private func gettingStepCount(completion: @escaping (Double) -> Void) {
@@ -130,8 +128,7 @@
       </code>
       </pre>
       </ol>
-      <ol>
-        Finally, I implemented a “Update Steps” button in my UI with the outlet listed in #4. Let’s create an update when that button is clicked:
+      <ol>8. Finally, I implemented a “Update Steps” button in my UI with the outlet listed in #4. Let’s create an update when that button is clicked:
         <pre><code>
         @IBAction func updateStepsButtonPressed(_ sender: Any) {
           gettingStepCount() { stepCount in // This function provides to get the step count of the users.
@@ -142,8 +139,18 @@
           }
         </code></pre>
       </ol>
-      <ol>Make sure the outlets are connected to the UI, so the labels are correctly updated! 
-        This will give you step count, but if you look at the HealthKit documentation, you can use other data from the HealthKit store.</ol>
+      <ol>9. Make sure the outlets are connected to the UI, so the labels are correctly updated! 
+        This will give you step count, but if you look at the HealthKit documentation, you can use other data from the HealthKit store.
+      </ol>
+      <h2>Further Discussion/Conclusions:</h2>
+        If you followed along, you should have successfully implemented the HealthKit in your application! 
+        You can now track the user’s step count and update that count within your app. 
+        You can also look into the HealthKit documentation to see how you can update the HeathKit data from your app. 
+
+        If you want to access real-time data, including pedometer functionality, look into Apple’s Core Motion Framework. 
+
+        Here is our complete source code on GitHub.
       </p>
+      
     </body>
   </html>
