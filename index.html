@@ -23,17 +23,21 @@
       </h2>
       <p>
         To begin using HealthKit in your XCode project, you must do the following to configure your HealthKit store:
- 1. Enable HealthKit in your project:
-  In XCode, select the top folder of your project from the targets list
-  Click on “Signing & Capabilities”
-  Type in “HealthKit” and click on the search results
-  Next, go to the “Info” tab
-  Click the “+” and choose “Privacy - Health Share Usage Description”
-  You can double click on the value column to enter your app’s purpose string. This lets the user know why you need access to this data.
-  Finally, enable the Background Delivery capabilities
-  You can also choose to access Clinical Health Records, 
-        but see reference #2 in the See Also Section for more information about this as you need additional configuration steps. 
-
+         <ol>1. Enable HealthKit in your project:
+          In XCode, select the top folder of your project from the targets list
+          Click on “Signing & Capabilities”
+          Type in “HealthKit” and click on the search results
+          Next, go to the “Info” tab
+          Click the “+” and choose “Privacy - Health Share Usage Description”
+          You can double click on the value column to enter your app’s purpose string. This lets the user know why you need access to this data.
+          Finally, enable the Background Delivery capabilities
+          You can also choose to access Clinical Health Records, 
+          but see reference #2 in the See Also Section for more information about this as you need additional configuration steps. 
+        </ol>
+      <ol> Next, in the swift file that I wanted to access this HealthKit data (in my case MainViewController), 
+        I used this line to import the HealthKit at the top:
+      <code>import HealthKit</code>
+      </ol>
       </p>
     </body>
   </html>
