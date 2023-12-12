@@ -42,15 +42,18 @@
       <code>private let healthStore = HKHealthStore()</code>
       </ol>
       <ol>Within my UI, I added labels as well as a progress bar and then put these outlets at the top of my MainViewController 
-      <code>    
-        @IBOutlet weak var stepsLabel: UILabel!
-        @IBOutlet weak var loginLabel: UILabel!
-        @IBOutlet weak var stepsProgress: UIProgressView!
-        @IBOutlet weak var percentLabel: UILabel!
-        @IBOutlet weak var updateStepsButton: UIButton!
-      </code>
+      <pre>
+        <code>    
+          @IBOutlet weak var stepsLabel: UILabel!
+          @IBOutlet weak var loginLabel: UILabel!
+          @IBOutlet weak var stepsProgress: UIProgressView!
+          @IBOutlet weak var percentLabel: UILabel!
+          @IBOutlet weak var updateStepsButton: UIButton!
+        </code>
+      </pre>
       </ol>
       <ol>In my function ViewDidLoad(), I added the following code (Note: we did not implement those two functions, so this will give errors):
+      <pre>
       <code>    override func viewDidLoad() {
         super.viewDidLoad()
         authorizeHealthKit() // This function provides the ability to authorize the HealthKit.
@@ -63,6 +66,7 @@
         }
       }
       </code>
+        </pre>
       </ol>
       <ol>
         To implement the authorizeHealthKit() function I added this:
