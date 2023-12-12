@@ -50,8 +50,30 @@
         @IBOutlet weak var updateStepsButton: UIButton!
       </code>
       </ol>
-      <ol></ol>
-      <ol></ol>
+      <ol>In my function ViewDidLoad(), I added the following code (Note: we did not implement those two functions, so this will give errors):
+      <code>    override func viewDidLoad() {
+        super.viewDidLoad()
+        authorizeHealthKit() // This function provides the ability to authorize the HealthKit.
+        gettingStepCount() { stepCount in // This function provides the step count of the users.
+                    DispatchQueue.main.async {
+                        print("Step count is:", Int(stepCount)) // Get the step count.
+                        self.stepsLabel.text = "You have walked \(Int(stepCount)) steps!"
+                        //these things do not update here...
+                    }
+        }
+      }
+      </code>
+      </ol>
+      <ol>
+        To implement the authorizeHealthKit() function I added this:
+        <code>private func authorizeHealthKit() {
+         let healthKitTypes: Set = [ HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)! ] // We want to access the step count.
+        healthStore.requestAuthorization(toShare: nil, read: healthKitTypes) { (success, error) in  // We will check the authorization.
+                        if success {} // Authorization is successful.
+                    }
+                }
+      </code>
+      </ol>
       <ol></ol>
       <ol></ol>
       <ol></ol>
